@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algo grande se viene</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="noise-overlay"></div>
+    </div>
+
+    <main class="content-wrapper">
+        <div class="badge">El Faro Jóvenes</div>
+
+        <div id="pre-revelation" class="view-state active">
+            <h1 class="main-title">Algo grande<br>se viene</h1>
+            <p class="subtitle">Todavía no podemos decir mucho... pero preparate.</p>
+
+            <div class="countdown" id="countdown">
+                <div class="time-box">
+                    <span class="number" id="days">00</span>
+                    <span class="label">Días</span>
+                </div>
+                <div class="separator">:</div>
+                <div class="time-box">
+                    <span class="number" id="hours">00</span>
+                    <span class="label">Horas</span>
+                </div>
+                <div class="separator">:</div>
+                <div class="time-box">
+                    <span class="number" id="minutes">00</span>
+                    <span class="label">Minutos</span>
+                </div>
+                <div class="separator">:</div>
+                <div class="time-box">
+                    <span class="number" id="seconds">00</span>
+                    <span class="label">Segundos</span>
+                </div>
+            </div>
+
+            <div class="hint-box">
+                <div class="hint-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M12 16V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <p id="current-hint">Pista 1: Prepará la mochila.</p>
+            </div>
+        </div>
+
+        <div id="post-revelation" class="view-state">
+            <h1 class="main-title">Llegó el momento</h1>
+            <p class="subtitle">La sorpresa ya puede ser revelada.</p>
+            <div class="reveal-box">
+                <h2 class="reveal-title">Campamento de Jóvenes 2027</h2>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p id="footer-text">Escaneaste el QR. Ahora esperá la revelación.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
