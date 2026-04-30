@@ -1,5 +1,5 @@
 // Configuración de la fecha de anuncio
-const announcementDate = new Date("2026-06-06T00:00:00-03:00").getTime();
+const announcementDate = new Date("2026-05-30T00:00:00-03:00").getTime();
 
 // Pistas disponibles
 const hints = [
