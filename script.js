@@ -1,12 +1,12 @@
 // Configuración de la fecha de anuncio
 const announcementDate = new Date("2026-05-30T00:00:00-03:00").getTime();
 
-// Pistas disponibles
+// Pistas disponibles — transmisiones de radio temáticas
 const hints = [
-    "Pista 1: Llego la hora de prepararse.",
-    "Pista 2: No va a ser una reunión más.",
-    "Pista 3: Hay cosas que pasan lejos del ruido.",
-    "Pista 4: Algo puede cambiar en un fin de semana."
+    "📡 Transmisión 01: Conseguí provisiones. El refugio actual no es seguro.",
+    "📡 Transmisión 02: El ruido los atrae. Mantené silencio.",
+    "📡 Transmisión 03: La zona segura está lejos de la ciudad. Preparate para moverte.",
+    "📡 Transmisión 04: Solo los que respondan a tiempo van a sobrevivir este fin de semana."
 ];
 
 // Elementos del DOM
@@ -70,7 +70,7 @@ function showRevelation() {
 
     preRevelationEl.classList.remove("active");
     postRevelationEl.classList.add("active");
-    footerTextEl.textContent = "Ahora sí: contanos si venís.";
+    footerTextEl.textContent = "Confirmá tu evacuación. No hay lugar para todos.";
 
     // Podemos detener el intervalo ya que no hay más cuenta regresiva
     clearInterval(countdownInterval);

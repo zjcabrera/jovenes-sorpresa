@@ -4,29 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algo grande se viene</title>
+    <title>⚠ Transmisión Interceptada</title>
+    <meta name="description" content="Señal de emergencia interceptada. Mantenete en alerta.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="background-container">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
+        <div class="fog fog-1"></div>
+        <div class="fog fog-2"></div>
+        <div class="fog fog-3"></div>
         <div class="noise-overlay"></div>
+        <div class="scanlines"></div>
+        <div class="vignette"></div>
     </div>
 
     <main class="content-wrapper">
-        <div class="badge">El Faro Jóvenes</div>
+        <div class="badge">⚠ TRANSMISIÓN DE EMERGENCIA</div>
 
         <div id="pre-revelation" class="view-state active">
-            <h1 class="main-title">Algo grande<br>se viene</h1>
-            <p class="subtitle">Todavía no podemos decir mucho... pero preparate.</p>
+            <h1 class="main-title" data-text="Algo se acerca">Algo se acerca</h1>
+            <p class="subtitle">Transmisión interceptada. Frecuencia inestable.<br>Mantenete en alerta.</p>
 
             <div class="countdown" id="countdown">
                 <div class="time-box">
@@ -53,31 +54,29 @@
             <div class="hint-box">
                 <div class="hint-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M12 16V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
+                        <path d="M12 20V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        <path d="M18 6C18 6 15.5 8 12 8C8.5 8 6 6 6 6" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                        <path d="M21 3C21 3 17 6 12 6C7 6 3 3 3 3" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" />
+                        <circle cx="12" cy="22" r="2" fill="currentColor" />
                     </svg>
                 </div>
-                <p id="current-hint">Pista 1: Prepará la mochila.</p>
+                <p id="current-hint">📡 Transmisión 01: Conseguí provisiones. El refugio actual no es seguro.</p>
             </div>
         </div>
 
         <div id="post-revelation" class="view-state">
-            <h1 class="main-title">Llegó el momento</h1>
-            <p class="subtitle">La sorpresa ya puede ser revelada.</p>
+            <h1 class="main-title" data-text="ZONA SEGURA LOCALIZADA">ALERTA: ZONA SEGURA<br>LOCALIZADA</h1>
+            <p class="subtitle">Coordenadas confirmadas. Punto de encuentro activo.</p>
             <div class="reveal-box">
-                <h2 class="reveal-title">Campamento de Jóvenes 2027</h2>
+                <h2 class="reveal-title">CAMPAMENTO DE SUPERVIVENCIA 2027<br>EL FARO JÓVENES</h2>
             </div>
         </div>
     </main>
 
     <footer class="footer">
-        <p id="footer-text">Escaneaste el QR. Ahora esperá la revelación. Semana a semana iremos revelando cosas...
-        </p>
+        <p id="footer-text">/// señal interceptada — aguardá instrucciones ///</p>
     </footer>
 
     <script src="script.js"></script>
