@@ -53,7 +53,7 @@ function updateCountdown() {
     if (days > 21) {
         hintIndex = 0;
     } else if (days > 14) {
-        hintIndex = 1;
+        hintIndex = 0;
     } else if (days > 7) {
         hintIndex = 2;
     } else {
