@@ -73,7 +73,7 @@ function createPigpenSVG(letter) {
     return `<svg class="pigpen-char" viewBox="0 0 ${SZ} ${SZ}" xmlns="http://www.w3.org/2000/svg">${paths}</svg>`;
 }
 
-const PIGPEN_MESSAGE = "SALIMOS DEL RUIDO";
+const PIGPEN_MESSAGE = "REINGRESO AUTORIZADO";
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 function renderWord(word) {
