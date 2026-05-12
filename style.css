@@ -295,14 +295,20 @@ body {
 }
 
 @media (max-width: 600px) {
-    .countdown { gap: 0.5rem; }
+    .content-wrapper { padding: 1rem; }
+    .badge { margin-bottom: 1rem; font-size: 0.7rem; padding: 0.4rem 1rem; }
+    .main-title { font-size: clamp(2.2rem, 8vw, 3.5rem); margin-bottom: 0.8rem; }
+    .subtitle { margin: 0 auto 1.5rem auto; font-size: 0.95rem; line-height: 1.6; }
+    .countdown { gap: 0.5rem; margin-bottom: 1.5rem; }
     .time-box {
-        padding: 1rem;
-        min-width: 72px;
+        padding: 0.8rem;
+        min-width: 68px;
     }
-    .number { font-size: 2rem; }
-    .label { font-size: 0.65rem; }
-    .separator { margin-top: -1rem; font-size: 1.5rem; }
+    .number { font-size: 1.8rem; }
+    .label { font-size: 0.6rem; letter-spacing: 1px; }
+    .separator { margin-top: -0.8rem; font-size: 1.2rem; }
+    .hint-box { padding: 1rem 1.2rem; max-width: 100%; }
+    #current-hint { font-size: 0.85rem; }
 }
 
 /* ========================================

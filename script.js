@@ -4,8 +4,7 @@ const announcementDate = new Date("2026-05-30T00:00:00-03:00").getTime();
 // Pistas disponibles — transmisiones de radio temáticas
 const hints = [
     "📡 Transmisión 01: Conseguí provisiones. El bunker no es seguro.",
-    "📡 Transmisión 02: El ruido los atrae. Mantené silencio.",
-    "📡 Transmisión 03: La zona segura está lejos de la ciudad. Preparate para moverte.",
+    "📡 Transmisión 02 La zona segura está lejos de la ciudad. Preparate para moverte.",
     "📡 Transmisión 04: Solo los que respondan a tiempo van a sobrevivir este fin de semana."
 ];
 
@@ -53,7 +52,7 @@ function updateCountdown() {
     if (days > 21) {
         hintIndex = 0;
     } else if (days > 14) {
-        hintIndex = 0;
+        hintIndex = 1;
     } else if (days > 7) {
         hintIndex = 2;
     } else {
