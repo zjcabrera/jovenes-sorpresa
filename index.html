@@ -64,6 +64,29 @@
                 </div>
                 <p id="current-hint">📡 Transmisión 01: Conseguí provisiones. El bunker no es seguro.</p>
             </div>
+
+            <div class="cipher-section" id="cipher-section">
+                <div class="cipher-header">
+                    <span class="cipher-badge">📡 Pista 3 — Señal inestable</span>
+                    <span class="cipher-type">Mensaje cifrado</span>
+                </div>
+                <div class="cipher-symbols" id="cipher-symbols"></div>
+                <div class="cipher-footer">
+                    <span class="cipher-status" id="cipher-status">Buscando señal…</span>
+                    <span class="cipher-help">Cifrado: Pigpen</span>
+                </div>
+                <button class="dict-toggle" id="dict-toggle" type="button">🔑 Ver clave de descifrado</button>
+            </div>
+
+            <div class="dict-overlay" id="dict-overlay">
+                <div class="dict-modal">
+                    <div class="dict-modal-header">
+                        <span class="dict-modal-title">🔑 Clave Pigpen</span>
+                        <button class="dict-close" id="dict-close" type="button">✕</button>
+                    </div>
+                    <div class="dict-grid" id="dict-grid"></div>
+                </div>
+            </div>
         </div>
 
         <div id="post-revelation" class="view-state">

@@ -76,7 +76,7 @@ body {
     100% { transform: translateX(-25%) translateY(-2%); }
 }
 
-/* Noise / Static overlay — more visible than before */
+/* Noise / Static overlay */
 .noise-overlay {
     position: absolute;
     top: 0;
@@ -348,6 +348,288 @@ body {
 @keyframes pulseRed {
     0% { box-shadow: 0 0 15px rgba(138, 3, 3, 0.1); }
     100% { box-shadow: 0 0 25px rgba(138, 3, 3, 0.35), inset 0 0 10px rgba(138, 3, 3, 0.05); }
+}
+
+/* ========================================
+   CIPHER SECTION — Pigpen
+   ======================================== */
+.cipher-section {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background: var(--box-bg);
+    border: 1px solid var(--border-color);
+    border-top: 3px solid var(--accent-blood);
+    border-radius: 2px;
+    padding: 1.5rem 2rem;
+    margin: 0 auto;
+    max-width: 560px;
+    width: 100%;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    animation: pulseRed 4s infinite alternate;
+}
+
+.cipher-section.active {
+    display: flex;
+}
+
+.cipher-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.cipher-badge {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-blood);
+    animation: flicker 3s infinite;
+}
+
+.cipher-type {
+    font-family: 'Creepster', cursive;
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    text-shadow: 0 0 8px rgba(138, 3, 3, 0.4);
+}
+
+.cipher-symbols {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 0.5rem 0;
+    min-height: 50px;
+    transition: opacity 0.3s ease;
+}
+
+/* Interference state */
+.cipher-symbols.interference {
+    animation: cipherGlitch 0.4s infinite steps(2);
+}
+
+.cipher-symbols.stable {
+    animation: none;
+}
+
+@keyframes cipherGlitch {
+    0% { transform: translateX(0); opacity: 0.85; }
+    25% { transform: translateX(-2px); opacity: 0.7; }
+    50% { transform: translateX(1px); opacity: 0.9; }
+    75% { transform: translateX(-1px); opacity: 0.75; }
+    100% { transform: translateX(2px); opacity: 0.85; }
+}
+
+.cipher-word {
+    display: flex;
+    gap: 3px;
+}
+
+.cipher-space {
+    width: 14px;
+}
+
+.pigpen-char {
+    width: 34px;
+    height: 34px;
+    color: var(--accent-blood);
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.cipher-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.cipher-status {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.cipher-status.searching {
+    color: var(--accent-blood);
+    animation: flicker 2s infinite;
+}
+
+.cipher-status.locked {
+    color: var(--accent-terminal);
+    text-shadow: 0 0 8px rgba(51, 255, 51, 0.4);
+    animation: none;
+}
+
+.cipher-help {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+    text-align: center;
+    opacity: 0.6;
+    margin: 0;
+}
+
+/* Dictionary toggle button */
+.dict-toggle {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    color: var(--text-secondary);
+    font-family: 'Special Elite', monospace;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.dict-toggle:hover {
+    border-color: var(--accent-blood);
+    color: var(--accent-blood);
+    box-shadow: 0 0 10px var(--accent-blood-dim);
+}
+
+/* Dictionary overlay modal */
+.dict-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.dict-overlay.open {
+    display: flex;
+}
+
+.dict-modal {
+    background: var(--bg-color);
+    border: 1px solid var(--accent-blood);
+    border-radius: 4px;
+    padding: 1.5rem;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 0 40px rgba(138, 3, 3, 0.3);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.dict-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dict-modal-title {
+    font-family: 'Creepster', cursive;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    text-shadow: 0 0 8px rgba(138, 3, 3, 0.4);
+}
+
+.dict-close {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.dict-close:hover {
+    border-color: var(--accent-blood);
+    color: var(--accent-blood);
+}
+
+.dict-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    width: 100%;
+}
+
+.dict-cell {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 8px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.dict-cell .dict-letter {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+    font-family: 'Special Elite', monospace;
+    min-width: 14px;
+}
+
+.dict-cell .pigpen-char {
+    width: 22px;
+    height: 22px;
+}
+
+.dict-separator {
+    grid-column: 1 / -1;
+    height: 1px;
+    background: var(--border-color);
+    margin: 4px 0;
+}
+
+@media (max-width: 600px) {
+    .cipher-section { padding: 1rem 1.2rem; max-width: 100%; }
+    .cipher-type { font-size: 1.2rem; }
+    .pigpen-char { width: 28px; height: 28px; }
+    .cipher-space { width: 10px; }
+    .cipher-help { font-size: 0.65rem; }
+    .cipher-badge { font-size: 0.65rem; }
+    .dict-toggle { font-size: 0.7rem; }
+    .dict-modal { padding: 1rem; }
+    .dict-cell .pigpen-char { width: 20px; height: 20px; }
+    .dict-cell .dict-letter { font-size: 0.65rem; }
+    .dict-cell { padding: 4px 6px; }
+}
+
+/* Reduced motion: disable cipher glitch */
+@media (prefers-reduced-motion: reduce) {
+    .cipher-symbols.interference {
+        animation: none;
+        opacity: 1;
+    }
+    .cipher-status.searching {
+        animation: none;
+    }
+    .main-title { animation: none; }
+    .main-title::before, .main-title::after { animation: none; opacity: 0; }
+    .badge { animation: none; }
+    .subtitle { animation: none; }
+    .scanlines { animation: none; }
+    .fog { animation: none; }
+    .separator { animation: none; }
 }
 
 /* ========================================
