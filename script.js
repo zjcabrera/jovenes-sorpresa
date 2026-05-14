@@ -115,6 +115,29 @@ const dictOverlayEl = document.getElementById("dict-overlay");
 const dictCloseEl = document.getElementById("dict-close");
 const dictGridEl = document.getElementById("dict-grid");
 
+const morseSectionEl = document.getElementById("morse-section");
+const morseAudioEl = document.getElementById("morse-audio");
+const morsePlayBtn = document.getElementById("morse-play-btn");
+const morseStatusEl = document.getElementById("morse-status");
+
+// ========================================
+// Morse Code Player
+// ========================================
+morsePlayBtn.addEventListener("click", () => {
+    morseAudioEl.play();
+    morsePlayBtn.classList.add("playing");
+    morsePlayBtn.textContent = "Reproduciendo...";
+    morseStatusEl.textContent = "Señal detectada...";
+    morseStatusEl.className = "cipher-status searching";
+});
+
+morseAudioEl.addEventListener("ended", () => {
+    morsePlayBtn.classList.remove("playing");
+    morsePlayBtn.innerHTML = `<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M8 5V19L19 12L8 5Z" /></svg> Reproducir de nuevo`;
+    morseStatusEl.textContent = "Transmisión finalizada";
+    morseStatusEl.className = "cipher-status locked";
+});
+
 // ========================================
 // Dictionary Modal
 // ========================================
@@ -240,17 +263,24 @@ function updateCountdown() {
 
     let hintIndex = 0;
     if (days > 21) hintIndex = 0;
-    else if (days > 14) hintIndex = 2;
-    else if (days > 7) hintIndex = 2;
+    else if (days > 14) hintIndex = 3; // Mostrar Pista 4 (Morse) ahora
+    else if (days > 7) hintIndex = 3;
     else hintIndex = 3;
 
     if (hintIndex === 2) {
         hintBoxEl.style.display = 'none';
+        morseSectionEl.classList.remove('active');
         cipherSectionEl.classList.add('active');
         startCipher();
+    } else if (hintIndex === 3) {
+        hintBoxEl.style.display = 'none';
+        cipherSectionEl.classList.remove('active');
+        morseSectionEl.classList.add('active');
+        stopCipher();
     } else {
         hintBoxEl.style.display = 'flex';
         cipherSectionEl.classList.remove('active');
+        morseSectionEl.classList.remove('active');
         stopCipher();
         currentHintEl.textContent = hints[hintIndex];
     }

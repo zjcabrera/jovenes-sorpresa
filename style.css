@@ -1,14 +1,14 @@
 :root {
-    --bg-color: #0a0a08;
-    --text-primary: #e0ddd5;
-    --text-secondary: rgba(200, 195, 180, 0.7);
-    --accent-blood: #8a0303;
-    --accent-blood-dim: rgba(138, 3, 3, 0.3);
-    --accent-military: #3d5a1e;
-    --accent-rust: #4a1a1a;
-    --accent-terminal: #33ff33;
-    --border-color: rgba(138, 3, 3, 0.25);
-    --box-bg: rgba(10, 10, 8, 0.85);
+    --bg-color: #1d1d1b;
+    --text-primary: #f2e6c9;
+    --text-secondary: rgba(214, 199, 161, 0.7);
+    --accent-blood: #d8a31a;
+    --accent-blood-dim: rgba(216, 163, 26, 0.3);
+    --accent-military: #6b705c;
+    --accent-rust: #a85d2a;
+    --accent-terminal: #a68a64;
+    --border-color: rgba(75, 79, 70, 0.4);
+    --box-bg: rgba(29, 29, 27, 0.85);
 }
 
 * {
@@ -53,13 +53,13 @@ body {
 
 .fog-1 {
     background: radial-gradient(ellipse at 20% 50%, var(--accent-blood) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 30%, var(--accent-military) 0%, transparent 50%);
+        radial-gradient(ellipse at 80% 30%, var(--accent-military) 0%, transparent 50%);
     animation: fogDrift 30s infinite alternate ease-in-out;
 }
 
 .fog-2 {
     background: radial-gradient(ellipse at 60% 70%, var(--accent-rust) 0%, transparent 45%),
-                radial-gradient(ellipse at 30% 20%, var(--accent-blood) 0%, transparent 40%);
+        radial-gradient(ellipse at 30% 20%, var(--accent-blood) 0%, transparent 40%);
     animation: fogDrift 25s infinite alternate-reverse ease-in-out;
     opacity: 0.08;
 }
@@ -71,9 +71,17 @@ body {
 }
 
 @keyframes fogDrift {
-    0% { transform: translateX(0) translateY(0); }
-    50% { transform: translateX(-15%) translateY(3%); }
-    100% { transform: translateX(-25%) translateY(-2%); }
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-15%) translateY(3%);
+    }
+
+    100% {
+        transform: translateX(-25%) translateY(-2%);
+    }
 }
 
 /* Noise / Static overlay */
@@ -96,20 +104,23 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: repeating-linear-gradient(
-        to bottom,
-        transparent 0px,
-        transparent 2px,
-        rgba(0, 0, 0, 0.15) 2px,
-        rgba(0, 0, 0, 0.15) 4px
-    );
+    background: repeating-linear-gradient(to bottom,
+            transparent 0px,
+            transparent 2px,
+            rgba(0, 0, 0, 0.15) 2px,
+            rgba(0, 0, 0, 0.15) 4px);
     pointer-events: none;
     animation: scanlineMove 8s linear infinite;
 }
 
 @keyframes scanlineMove {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(4px); }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(4px);
+    }
 }
 
 /* Vignette */
@@ -195,25 +206,78 @@ body {
 }
 
 @keyframes glitch {
-    0%, 92%, 100% { transform: translate(0); }
-    93% { transform: translate(-3px, 1px); }
-    94% { transform: translate(3px, -1px); }
-    95% { transform: translate(-1px, 2px); }
-    96% { transform: translate(2px, -2px); }
+
+    0%,
+    92%,
+    100% {
+        transform: translate(0);
+    }
+
+    93% {
+        transform: translate(-3px, 1px);
+    }
+
+    94% {
+        transform: translate(3px, -1px);
+    }
+
+    95% {
+        transform: translate(-1px, 2px);
+    }
+
+    96% {
+        transform: translate(2px, -2px);
+    }
 }
 
 @keyframes glitchLayer1 {
-    0%, 90%, 100% { clip-path: inset(0 0 80% 0); transform: translate(0); }
-    92% { clip-path: inset(20% 0 40% 0); transform: translate(-4px, 0); }
-    94% { clip-path: inset(60% 0 10% 0); transform: translate(4px, 0); }
-    96% { clip-path: inset(10% 0 70% 0); transform: translate(-2px, 0); }
+
+    0%,
+    90%,
+    100% {
+        clip-path: inset(0 0 80% 0);
+        transform: translate(0);
+    }
+
+    92% {
+        clip-path: inset(20% 0 40% 0);
+        transform: translate(-4px, 0);
+    }
+
+    94% {
+        clip-path: inset(60% 0 10% 0);
+        transform: translate(4px, 0);
+    }
+
+    96% {
+        clip-path: inset(10% 0 70% 0);
+        transform: translate(-2px, 0);
+    }
 }
 
 @keyframes glitchLayer2 {
-    0%, 88%, 100% { clip-path: inset(80% 0 0 0); transform: translate(0); }
-    90% { clip-path: inset(50% 0 20% 0); transform: translate(3px, 0); }
-    93% { clip-path: inset(10% 0 60% 0); transform: translate(-3px, 0); }
-    96% { clip-path: inset(70% 0 5% 0); transform: translate(2px, 0); }
+
+    0%,
+    88%,
+    100% {
+        clip-path: inset(80% 0 0 0);
+        transform: translate(0);
+    }
+
+    90% {
+        clip-path: inset(50% 0 20% 0);
+        transform: translate(3px, 0);
+    }
+
+    93% {
+        clip-path: inset(10% 0 60% 0);
+        transform: translate(-3px, 0);
+    }
+
+    96% {
+        clip-path: inset(70% 0 5% 0);
+        transform: translate(2px, 0);
+    }
 }
 
 /* Subtitle */
@@ -229,11 +293,28 @@ body {
 }
 
 @keyframes flicker {
-    0%, 95%, 100% { opacity: 1; }
-    96% { opacity: 0.6; }
-    97% { opacity: 1; }
-    98% { opacity: 0.4; }
-    99% { opacity: 0.9; }
+
+    0%,
+    95%,
+    100% {
+        opacity: 1;
+    }
+
+    96% {
+        opacity: 0.6;
+    }
+
+    97% {
+        opacity: 1;
+    }
+
+    98% {
+        opacity: 0.4;
+    }
+
+    99% {
+        opacity: 0.9;
+    }
 }
 
 /* ========================================
@@ -295,20 +376,59 @@ body {
 }
 
 @media (max-width: 600px) {
-    .content-wrapper { padding: 1rem; }
-    .badge { margin-bottom: 1rem; font-size: 0.7rem; padding: 0.4rem 1rem; }
-    .main-title { font-size: clamp(2.2rem, 8vw, 3.5rem); margin-bottom: 0.8rem; }
-    .subtitle { margin: 0 auto 1.5rem auto; font-size: 0.95rem; line-height: 1.6; }
-    .countdown { gap: 0.5rem; margin-bottom: 1.5rem; }
+    .content-wrapper {
+        padding: 1rem;
+    }
+
+    .badge {
+        margin-bottom: 1rem;
+        font-size: 0.7rem;
+        padding: 0.4rem 1rem;
+    }
+
+    .main-title {
+        font-size: clamp(2.2rem, 8vw, 3.5rem);
+        margin-bottom: 0.8rem;
+    }
+
+    .subtitle {
+        margin: 0 auto 1.5rem auto;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .countdown {
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
     .time-box {
         padding: 0.8rem;
         min-width: 68px;
     }
-    .number { font-size: 1.8rem; }
-    .label { font-size: 0.6rem; letter-spacing: 1px; }
-    .separator { margin-top: -0.8rem; font-size: 1.2rem; }
-    .hint-box { padding: 1rem 1.2rem; max-width: 100%; }
-    #current-hint { font-size: 0.85rem; }
+
+    .number {
+        font-size: 1.8rem;
+    }
+
+    .label {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+    }
+
+    .separator {
+        margin-top: -0.8rem;
+        font-size: 1.2rem;
+    }
+
+    .hint-box {
+        padding: 1rem 1.2rem;
+        max-width: 100%;
+    }
+
+    #current-hint {
+        font-size: 0.85rem;
+    }
 }
 
 /* ========================================
@@ -346,8 +466,13 @@ body {
 }
 
 @keyframes pulseRed {
-    0% { box-shadow: 0 0 15px rgba(138, 3, 3, 0.1); }
-    100% { box-shadow: 0 0 25px rgba(138, 3, 3, 0.35), inset 0 0 10px rgba(138, 3, 3, 0.05); }
+    0% {
+        box-shadow: 0 0 15px rgba(138, 3, 3, 0.1);
+    }
+
+    100% {
+        box-shadow: 0 0 25px rgba(138, 3, 3, 0.35), inset 0 0 10px rgba(138, 3, 3, 0.05);
+    }
 }
 
 /* ========================================
@@ -417,11 +542,30 @@ body {
 }
 
 @keyframes cipherGlitch {
-    0% { transform: translateX(0); opacity: 0.85; }
-    25% { transform: translateX(-2px); opacity: 0.7; }
-    50% { transform: translateX(1px); opacity: 0.9; }
-    75% { transform: translateX(-1px); opacity: 0.75; }
-    100% { transform: translateX(2px); opacity: 0.85; }
+    0% {
+        transform: translateX(0);
+        opacity: 0.85;
+    }
+
+    25% {
+        transform: translateX(-2px);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: translateX(1px);
+        opacity: 0.9;
+    }
+
+    75% {
+        transform: translateX(-1px);
+        opacity: 0.75;
+    }
+
+    100% {
+        transform: translateX(2px);
+        opacity: 0.85;
+    }
 }
 
 .cipher-word {
@@ -441,6 +585,77 @@ body {
     stroke-width: 2.5;
     stroke-linecap: round;
     stroke-linejoin: round;
+}
+
+
+/* ========================================
+   MORSE SECTION
+   ======================================== */
+.morse-section {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background: var(--box-bg);
+    border: 1px solid var(--border-color);
+    border-top: 3px solid var(--accent-blood);
+    border-radius: 2px;
+    padding: 1.5rem 2rem;
+    margin: 0 auto;
+    max-width: 560px;
+    width: 100%;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    animation: pulseRed 4s infinite alternate;
+}
+
+.morse-section.active {
+    display: flex;
+}
+
+.morse-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    width: 100%;
+}
+
+.morse-play-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 2px solid var(--accent-blood);
+    border-radius: 4px;
+    color: var(--accent-blood);
+    font-family: 'Special Elite', monospace;
+    font-size: 1.2rem;
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px var(--accent-blood-dim), inset 0 0 10px rgba(216, 163, 26, 0.1);
+}
+
+.morse-play-btn:hover {
+    background: var(--accent-blood-dim);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--accent-blood), inset 0 0 15px rgba(216, 163, 26, 0.3);
+}
+
+.morse-play-btn.playing {
+    border-color: var(--accent-military);
+    color: var(--accent-military);
+    box-shadow: 0 0 15px rgba(107, 112, 92, 0.4);
+    pointer-events: none;
+    animation: flicker 2s infinite;
+}
+
+.morse-play-btn.playing svg {
+    display: none;
+    /* Hide play icon when playing, maybe show a stop/wave icon if needed, but simple is better */
 }
 
 .cipher-footer {
@@ -601,17 +816,52 @@ body {
 }
 
 @media (max-width: 600px) {
-    .cipher-section { padding: 1rem 1.2rem; max-width: 100%; }
-    .cipher-type { font-size: 1.2rem; }
-    .pigpen-char { width: 28px; height: 28px; }
-    .cipher-space { width: 10px; }
-    .cipher-help { font-size: 0.65rem; }
-    .cipher-badge { font-size: 0.65rem; }
-    .dict-toggle { font-size: 0.7rem; }
-    .dict-modal { padding: 1rem; }
-    .dict-cell .pigpen-char { width: 20px; height: 20px; }
-    .dict-cell .dict-letter { font-size: 0.65rem; }
-    .dict-cell { padding: 4px 6px; }
+    .cipher-section {
+        padding: 1rem 1.2rem;
+        max-width: 100%;
+    }
+
+    .cipher-type {
+        font-size: 1.2rem;
+    }
+
+    .pigpen-char {
+        width: 28px;
+        height: 28px;
+    }
+
+    .cipher-space {
+        width: 10px;
+    }
+
+    .cipher-help {
+        font-size: 0.65rem;
+    }
+
+    .cipher-badge {
+        font-size: 0.65rem;
+    }
+
+    .dict-toggle {
+        font-size: 0.7rem;
+    }
+
+    .dict-modal {
+        padding: 1rem;
+    }
+
+    .dict-cell .pigpen-char {
+        width: 20px;
+        height: 20px;
+    }
+
+    .dict-cell .dict-letter {
+        font-size: 0.65rem;
+    }
+
+    .dict-cell {
+        padding: 4px 6px;
+    }
 }
 
 /* Reduced motion: disable cipher glitch */
@@ -620,16 +870,40 @@ body {
         animation: none;
         opacity: 1;
     }
+
     .cipher-status.searching {
         animation: none;
     }
-    .main-title { animation: none; }
-    .main-title::before, .main-title::after { animation: none; opacity: 0; }
-    .badge { animation: none; }
-    .subtitle { animation: none; }
-    .scanlines { animation: none; }
-    .fog { animation: none; }
-    .separator { animation: none; }
+
+    .main-title {
+        animation: none;
+    }
+
+    .main-title::before,
+    .main-title::after {
+        animation: none;
+        opacity: 0;
+    }
+
+    .badge {
+        animation: none;
+    }
+
+    .subtitle {
+        animation: none;
+    }
+
+    .scanlines {
+        animation: none;
+    }
+
+    .fog {
+        animation: none;
+    }
+
+    .separator {
+        animation: none;
+    }
 }
 
 /* ========================================
@@ -670,17 +944,31 @@ body {
 }
 
 @keyframes terminalPulse {
-    0% { text-shadow: 0 0 15px rgba(51, 255, 51, 0.4), 0 0 30px rgba(51, 255, 51, 0.2); }
-    100% { text-shadow: 0 0 20px rgba(51, 255, 51, 0.6), 0 0 40px rgba(51, 255, 51, 0.3); }
+    0% {
+        text-shadow: 0 0 15px rgba(51, 255, 51, 0.4), 0 0 30px rgba(51, 255, 51, 0.2);
+    }
+
+    100% {
+        text-shadow: 0 0 20px rgba(51, 255, 51, 0.6), 0 0 40px rgba(51, 255, 51, 0.3);
+    }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes popIn {
-    to { transform: scale(1); }
+    to {
+        transform: scale(1);
+    }
 }
 
 /* ========================================

@@ -87,6 +87,27 @@
                     <div class="dict-grid" id="dict-grid"></div>
                 </div>
             </div>
+
+            <div class="morse-section" id="morse-section">
+                <div class="cipher-header">
+                    <span class="cipher-badge">📡 Transmisión 04 — Audio interceptado</span>
+                    <span class="cipher-type">Hay alguien del otro lado... Estamos intentando decodificar</span>
+                </div>
+                <div class="morse-player">
+                    <audio id="morse-audio" src="morsecode_jr88sjuumn1arp7ud1jhfi94h9.mp3"></audio>
+                    <button id="morse-play-btn" class="morse-play-btn">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5V19L19 12L8 5Z" />
+                        </svg>
+                        Reproducir
+                    </button>
+                </div>
+                <div class="cipher-footer">
+                    <span class="cipher-status" id="morse-status">Decodificando...</span>
+
+                </div>
+            </div>
         </div>
 
         <div id="post-revelation" class="view-state">
