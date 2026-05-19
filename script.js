@@ -6,7 +6,14 @@ const hints = [
     "📡 Transmisión 01: Conseguí provisiones. El bunker no es seguro.",
     "📡 Transmisión 02 La zona segura está lejos de la ciudad. Preparate para moverte.",
     null, // Pista 3: cifrado Pigpen
-    "📡 Transmisión 05: El registro encontró 3 perfiles, pero los nombres fueron eliminados. Solo quienes logren identificar a los sobrevivientes podrán recuperar los fragmentos."
+    `📡 Transmisión 05: El sistema recuperó 3 perfiles incompletos.
+No aparecen nombres.
+Solo quedaron rastros de lo que saben hacer.
+
+Si lográs identificar de quiénes se está hablando, vas a poder recuperar nuevos fragmentos de la señal.
+
+⚠️ Advertencia: cada vez falta menos para revelar la noticia.
+No se recomienda compartir las pistas: la señal podría perder estabilidad si circula demasiado.`
 ];
 
 // ========================================
