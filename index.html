@@ -26,7 +26,7 @@
         <div class="badge">⚠ TRANSMISIÓN DE EMERGENCIA</div>
 
         <div id="pre-revelation" class="view-state active">
-            <h1 class="main-title" data-text="Algo se acerca">Algo se acerca</h1>
+            <h1 class="main-title" data-text="Anuncio importante">ANUNCIO IMPORTANTE</h1>
             <p class="subtitle">Transmisión interceptada. Frecuencia inestable.<br>Mantenete en alerta.</p>
 
             <div class="countdown" id="countdown">
@@ -88,24 +88,36 @@
                 </div>
             </div>
 
-            <div class="morse-section" id="morse-section">
-                <div class="cipher-header">
-                    <span class="cipher-badge">📡 Transmisión 04 — Audio interceptado</span>
-                    <span class="cipher-type">Hay alguien del otro lado... Estamos intentando decodificar</span>
-                </div>
-                <div class="morse-player">
-                    <audio id="morse-audio" src="morsecode_jr88sjuumn1arp7ud1jhfi94h9.mp3"></audio>
-                    <button id="morse-play-btn" class="morse-play-btn">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 5V19L19 12L8 5Z" />
-                        </svg>
-                        Reproducir
-                    </button>
-                </div>
-                <div class="cipher-footer">
-                    <span class="cipher-status" id="morse-status">Decodificando...</span>
 
+
+            <!-- Survivors Grid Section -->
+            <div class="survivors-section" id="survivors-section">
+                <div class="survivors-header">
+                    <span class="cipher-badge">📁 Archivos recuperados</span>
+                    <h2 class="survivors-title">Expedientes de Sobrevivientes</h2>
+                </div>
+                <div class="survivors-grid" id="survivors-grid"></div>
+            </div>
+
+            <!-- Survivor Verification Modal -->
+            <div class="dict-overlay" id="survivor-overlay">
+                <div class="dict-modal survivor-modal-box">
+                    <div class="dict-modal-header">
+                        <span class="dict-modal-title" id="survivor-modal-title">Identificación</span>
+                        <button class="dict-close" id="survivor-close" type="button">✕</button>
+                    </div>
+                    <div class="survivor-modal-content">
+                        <div class="survivor-question-box">
+                            <p id="survivor-question">Pregunta...</p>
+                        </div>
+                        <div class="survivor-options" id="survivor-options">
+                            <!-- Options injected by JS -->
+                        </div>
+                        <div class="survivor-result" id="survivor-result" style="display: none;">
+                            <p id="survivor-result-text"></p>
+                            <h3 id="survivor-fragment"></h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
