@@ -1,5 +1,5 @@
 // Configuración de la fecha de anuncio
-const announcementDate = new Date("2026-05-30T00:00:00-03:00").getTime();
+const announcementDate = new Date("2026-05-30T23:00:00-03:00").getTime();
 
 // Pistas disponibles
 const hints = [
@@ -259,10 +259,9 @@ function updateCountdown() {
         cipherSectionEl.classList.add('active');
         startCipher();
     } else {
-        hintBoxEl.style.display = 'flex';
+        hintBoxEl.style.display = 'none'; // Se oculta Transmisión 05 permanentemente
         cipherSectionEl.classList.remove('active');
         stopCipher();
-        currentHintEl.textContent = hints[hintIndex];
     }
 }
 
@@ -454,3 +453,103 @@ survivorCloseEl.addEventListener('click', closeSurvivorModal);
 survivorOverlayEl.addEventListener('click', (e) => {
     if (e.target === survivorOverlayEl) closeSurvivorModal();
 });
+
+// ========================================
+// TRANSMISIÓN 06 (CIFRADO CESAR)
+// ========================================
+const transmission06 = {
+    fragments: ["X17", "QBA", "R-04", "JNP", "∆", "NBY", "09"],
+    validAnswers: ["MAXIMO PAZ", "MAXIMO-PAZ", "MPAZ"]
+};
+
+const t06FragmentsContainer = document.getElementById("t06-fragments");
+const t06Input = document.getElementById("t06-input");
+const t06VerifyBtn = document.getElementById("t06-verify-btn");
+const t06Result = document.getElementById("t06-result");
+
+// Renderizar fragmentos
+if (t06FragmentsContainer) {
+    let fragmentsHtml = "";
+    transmission06.fragments.forEach(frag => {
+        fragmentsHtml += `<div class="t06-fragment-chip">${frag}</div>`;
+    });
+    t06FragmentsContainer.innerHTML = fragmentsHtml;
+}
+
+// Normalizar texto
+function normalizeText(text) {
+    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Quitar tildes
+        .toUpperCase()
+        .replace(/\s+/g, "") // Quitar todos los espacios
+        .replace(/-/g, ""); // Quitar guiones para comparar fácil (MAXIMOPAZ o MPAZ)
+}
+
+// Inicializar estado guardado de T06
+let t06Attempts = parseInt(localStorage.getItem('t06_attempts') || '0', 10);
+const t06Resolved = localStorage.getItem('t06_resolved') === 'true';
+
+if (t06Input && t06VerifyBtn) {
+    if (t06Resolved) {
+        t06Input.disabled = true;
+        t06VerifyBtn.disabled = true;
+        t06Result.style.display = "block";
+        t06Result.className = "t06-result success";
+        t06Result.innerHTML = "Acceso concedido<br>Archivo parcialmente recuperado";
+    } else if (t06Attempts >= 2) {
+        t06Input.disabled = true;
+        t06VerifyBtn.disabled = true;
+        t06Result.style.display = "block";
+        t06Result.className = "t06-result error";
+        t06Result.innerHTML = "Acceso denegado<br>Sistema de seguridad bloqueado permanentemente";
+    }
+}
+
+function checkT06() {
+    if (t06Attempts >= 2 || t06Resolved) return;
+
+    const userInput = t06Input.value.trim();
+    if (!userInput) return;
+
+    const normalizedInput = normalizeText(userInput);
+
+    // Normalizar también las validAnswers para compararlas exactas
+    const isValid = transmission06.validAnswers.some(ans => normalizeText(ans) === normalizedInput);
+
+    t06Result.style.display = "block";
+
+    if (isValid) {
+        localStorage.setItem('t06_resolved', 'true');
+        t06Result.className = "t06-result success";
+        t06Result.innerHTML = "Acceso concedido<br>Archivo parcialmente recuperado";
+        t06Input.disabled = true;
+        t06VerifyBtn.disabled = true;
+    } else {
+        t06Attempts++;
+        localStorage.setItem('t06_attempts', t06Attempts.toString());
+
+        if (t06Attempts >= 2) {
+            t06Result.className = "t06-result error";
+            t06Result.innerHTML = "Acceso denegado<br>Sistema de seguridad bloqueado permanentemente";
+            t06Input.disabled = true;
+            t06VerifyBtn.disabled = true;
+        } else {
+            t06Result.className = "t06-result error";
+            t06Result.innerHTML = `Acceso denegado<br>Intento ${t06Attempts}/2. El archivo sigue dañado`;
+
+            // Esconder error después de un tiempo
+            setTimeout(() => {
+                t06Result.style.display = "none";
+                t06Input.value = "";
+            }, 3000);
+        }
+    }
+}
+
+if (t06VerifyBtn) {
+    t06VerifyBtn.addEventListener("click", checkT06);
+}
+if (t06Input) {
+    t06Input.addEventListener("keyup", (e) => {
+        if (e.key === "Enter") checkT06();
+    });
+}

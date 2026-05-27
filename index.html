@@ -51,7 +51,7 @@
                 </div>
             </div>
 
-            <div class="hint-box">
+            <div class="hint-box" style="display: none;">
                 <div class="hint-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 20V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
@@ -88,10 +88,35 @@
                 </div>
             </div>
 
+            <!-- Transmisión 06 Section -->
+            <div class="t06-section" id="t06-section">
+                <div class="cipher-header">
+                    <span class="cipher-badge">📡 Transmisión 06</span>
+                    <span class="cipher-type">Archivo dañado</span>
+                </div>
+                
+                <div class="t06-body">
+                    <p class="t06-info">La señal llegó corrida.<br>No todo lo recuperado pertenece al mensaje.<br>Nada llegó en el orden correcto.</p>
+                    <p class="t06-label">Fragmentos recuperados:</p>
+                    <div class="t06-fragments" id="t06-fragments">
+                        <!-- Fragments injected via JS -->
+                    </div>
+                </div>
 
+                <div class="cipher-footer">
+                    <span class="cipher-status">Estado: parcial</span>
+                </div>
+
+                <div class="t06-interaction">
+                    <input type="text" id="t06-input" class="t06-input" placeholder="Ingresá el mensaje recuperado" autocomplete="off" spellcheck="false">
+                    <button type="button" id="t06-verify-btn" class="t06-btn">Verificar</button>
+                </div>
+                
+                <div id="t06-result" class="t06-result" style="display: none;"></div>
+            </div>
 
             <!-- Survivors Grid Section -->
-            <div class="survivors-section" id="survivors-section">
+            <div class="survivors-section" id="survivors-section" style="display: none;">
                 <div class="survivors-header">
                     <span class="cipher-badge">📁 Archivos recuperados</span>
                     <h2 class="survivors-title">Expedientes de Sobrevivientes</h2>
